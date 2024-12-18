@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts of {{ user.username }}</title>
+</head>
+<body>
+    <h1>Posts of {{ user.username }}</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                {{ post.title }} - {{ post.content }}
+                <a href="/posts/{{ post.id }}/edit/">Edit</a>
+                <form action="/posts/{{ post.id }}/" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
